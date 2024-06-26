@@ -85,9 +85,36 @@
 
           <li class="nav-item">
             <a href="{{route('admin.supplier.index')}}" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-user"></i>
               <p>
                 Suppliers
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('admin.purchase.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-shopping-cart"></i>
+              <p>
+                Purchase
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('admin.sales.index')}}" class="nav-link">
+              <i class="nav-icon fa fa-shopping-bag"></i>
+              <p>
+                Sales
+              </p>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="{{route('admin.stats.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-chart-bar"></i>
+              <p>
+                Stats
               </p>
             </a>
           </li>

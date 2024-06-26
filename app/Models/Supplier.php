@@ -11,4 +11,9 @@ class Supplier extends Model
 
     protected $table = 'suppliers';
     protected $guarded = false;
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
 }

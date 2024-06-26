@@ -11,4 +11,14 @@ class Product extends Model
 
     protected $table = 'products';
     protected $guarded = false;
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
+    public function saleses()
+    {
+        return $this->hasMany(Sales::class);
+    }
 }

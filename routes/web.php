@@ -15,6 +15,15 @@ use App\Http\Controllers\Admin\Products\IndexController as ProductsIndexControll
 use App\Http\Controllers\Admin\Products\ShowController as ProductsShowController;
 use App\Http\Controllers\Admin\Products\StoreController as ProductsStoreController;
 use App\Http\Controllers\Admin\Products\UpdateController as ProductsUpdateController;
+use App\Http\Controllers\Admin\Purchase\CreateController as PurchaseCreateController;
+use App\Http\Controllers\Admin\Purchase\IndexController as PurchaseIndexController;
+use App\Http\Controllers\Admin\Purchase\ShowController as PurchaseShowController;
+use App\Http\Controllers\Admin\Purchase\StoreController as PurchaseStoreController;
+use App\Http\Controllers\Admin\Sales\CreateController as SalesCreateController;
+use App\Http\Controllers\Admin\Sales\IndexController as SalesIndexController;
+use App\Http\Controllers\Admin\Sales\ShowController as SalesShowController;
+use App\Http\Controllers\Admin\Sales\StoreController as SalesStoreController;
+use App\Http\Controllers\Admin\Stat\StatsController as StatStatsController;
 use App\Http\Controllers\Admin\Suppliers\CreateController as SuppliersCreateController;
 use App\Http\Controllers\Admin\Suppliers\DeleteController as SuppliersDeleteController;
 use App\Http\Controllers\Admin\Suppliers\EditController as SuppliersEditController;
@@ -23,6 +32,7 @@ use App\Http\Controllers\Admin\Suppliers\ShowController as SuppliersShowControll
 use App\Http\Controllers\Admin\Suppliers\StoreController as SuppliersStoreController;
 use App\Http\Controllers\Admin\Suppliers\UpdateController as SuppliersUpdateController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\Stat\StatsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,4 +85,27 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::patch('/{supplier}', [SuppliersUpdateController::class, 'index'])->name('admin.supplier.update');
         Route::delete('/{supplier}', [SuppliersDeleteController::class, 'index'])->name('admin.supplier.delete');
     });
+
+    
+    // Purchase created 
+    Route::group(['namespace' => 'Purchase', 'prefix' => 'purchases'], function () {
+        Route::get('/', [PurchaseIndexController::class, 'index'])->name('admin.purchase.index');
+        Route::get('/create', [PurchaseCreateController::class, 'index'])->name('admin.purchase.create');
+        Route::post('/', [PurchaseStoreController::class, 'index'])->name('admin.purchase.store');
+        Route::get('/{purchase}', [PurchaseShowController::class, 'index'])->name('admin.purchase.show');
+    });
+
+    // Sales created 
+    Route::group(['namespace' => 'Sales', 'prefix' => 'saleses'], function () {
+        Route::get('/', [SalesIndexController::class, 'index'])->name('admin.sales.index');
+        Route::get('/create', [SalesCreateController::class, 'index'])->name('admin.sales.create');
+        Route::post('/', [SalesStoreController::class, 'index'])->name('admin.sales.store');
+        Route::get('/{sales}', [SalesShowController::class, 'index'])->name('admin.sales.show');
+    });
+
+     // Sales created 
+     Route::group(['namespace' => 'Stat', 'prefix' => 'stats'], function () {
+        Route::get('/', [StatStatsController::class, 'index'])->name('admin.stats.index');
+    });
+
 });
