@@ -25,6 +25,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
+                        <th>Name</th>
                         <th>Product</th>
                         <th>Count</th>
                     </tr>
@@ -32,8 +33,10 @@
                 <tbody>
                     @foreach($purchases as $purchase)
                         <tr>
+                            <td>{{ $purchase->supplier_name }}</td>
                             <td>{{ $purchase->product->name }}</td>
                             <td>{{ $purchase->total_purchased }}</td>
+                            
                         </tr>
                     @endforeach
                 </tbody>
@@ -43,19 +46,22 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
+                        <th>Name</th>
                         <th>Product</th>
                         <th>Count</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($sales as $sale)
+                    @foreach($saleses as $sales)
                         <tr>
-                            <td>{{ $sale->product->name }}</td>
-                            <td>{{ $sale->total_sold }}</td>
+                            <td>{{ $sales->customer_name }}</td>
+                            <td>{{ $sales->product->name }}</td>
+                            <td>{{ $sales->total_sold }}</td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+        
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->

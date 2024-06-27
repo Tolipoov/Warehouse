@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\Sales\CreateController as SalesCreateController;
 use App\Http\Controllers\Admin\Sales\IndexController as SalesIndexController;
 use App\Http\Controllers\Admin\Sales\ShowController as SalesShowController;
 use App\Http\Controllers\Admin\Sales\StoreController as SalesStoreController;
+use App\Http\Controllers\Admin\Stat\PdfController;
 use App\Http\Controllers\Admin\Stat\StatsController as StatStatsController;
 use App\Http\Controllers\Admin\Suppliers\CreateController as SuppliersCreateController;
 use App\Http\Controllers\Admin\Suppliers\DeleteController as SuppliersDeleteController;
@@ -107,5 +108,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
      Route::group(['namespace' => 'Stat', 'prefix' => 'stats'], function () {
         Route::get('/', [StatStatsController::class, 'index'])->name('admin.stats.index');
     });
+    
 
 });
